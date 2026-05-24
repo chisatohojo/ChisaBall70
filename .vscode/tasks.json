@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MX8650: Monitor dx/dy",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\tools\\watch_mx8650.ps1"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "MX8650: Monitor dx/dy all lines",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\tools\\watch_mx8650.ps1",
+        "-ShowZero"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "MX8650: Upload XIAO ESP32C3",
+      "type": "shell",
+      "command": "arduino-cli",
+      "args": [
+        "compile",
+        "--upload",
+        "-p",
+        "COM9",
+        "--fqbn",
+        "esp32:esp32:XIAO_ESP32C3:FlashMode=dio",
+        "${workspaceFolder}\\MX8650A_XIAO_nRF52840_Test",
+        "--additional-urls",
+        "https://espressif.github.io/arduino-esp32/package_esp32_index.json"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}

@@ -49,6 +49,32 @@ dx=-6, dy=-6
 dx=17, dy=34
 ```
 
+## VSCode で dx/dy を確認する
+
+このリポジトリを VSCode で開いた状態で、`Terminal > Run Task...` から以下を実行できます。
+
+- `MX8650: Monitor dx/dy`
+  - XIAO の COM ポートを自動検出し、`debug ...` と `dx/dy` を VSCode のターミナルに表示します。
+  - `dx=0, dy=0` は 1 秒に 1 回だけ表示し、ボールを動かした時の非ゼロ値を見やすくしています。
+- `MX8650: Monitor dx/dy all lines`
+  - スケッチから出てくる `dx/dy` 行をすべて表示します。
+- `MX8650: Upload XIAO ESP32C3`
+  - `COM9` の XIAO ESP32C3 にこのスケッチを書き込みます。COM番号が変わった場合は `.vscode/tasks.json` の `COM9` を変更してください。
+
+ターミナルから直接実行する場合:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\watch_mx8650.ps1
+```
+
+COMポートを明示する場合:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\watch_mx8650.ps1 -Port COM9
+```
+
+終了はターミナルで `Ctrl+C` です。
+
 ## Arduino IDE 環境構築 Windows
 
 ### 1. Arduino IDE を入れる
